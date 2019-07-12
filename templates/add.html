@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block title %} Add code {% endblock %}
+
+{% block body %}
+
+    <div class="col-md-12">
+
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center" style="margin-bottom: 10px">Add Text</h2>
+
+
+                <form method="post">
+
+                {% csrf_token %}
+
+                    <div class="row" style="padding: 10px;">
+
+                   <div class="form-group">
+  <label class="col-md-2 col-md-offset-2 control-label" for="password">Title</label>
+  <div class="col-md-6">
+      {{ form.title.errors }}
+{#    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="yes">#}
+      {{ form.title }}
+  </div>
+</div>
+                        </div>
+
+    <div class="row" style="padding: 10px;">
+                    <div class="form-group">
+  <label class="col-md-2 col-md-offset-2 control-label" for="password">Text</label>
+  <div class="col-md-6">
+      {{ form.code.errors }}
+{#    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="yes">#}
+      {{ form.code }}
+  </div>
+</div>
+        </div>
+
+                    <div class="row" style="padding: 10px;">
+
+                    <div class="form-group">
+  <label class="col-md-2 col-md-offset-2 control-label" for="password">Language</label>
+  <div class="col-md-6">
+      {{ form.language.errors }}
+{#    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="yes">#}
+      {{ form.language }}
+  </div>
+</div>
+                     </div>
+
+                <div class="row" style="padding: 10px;">
+                    <div class="form-group">
+  <label class="col-md-4 control-label col-md-offset-2" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">Add</button>
+  </div>
+</div>
+                </div>
+
+                </form>
+        </div><!--//container-->
+    </section>
+    </div>
+
+
+
+
+{% endblock %}

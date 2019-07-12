@@ -1,0 +1,182 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block title %} Home {% endblock %}
+
+    {% block navheads %}
+        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
+        <li class="nav-item"><a class="scrollto" href="#docs">Get Started</a></li>
+    {% endblock %}
+
+
+
+    {% block body %}
+
+        <script type="text/javascript">
+        datax = ['Following property is maintained in the below for loop<br/>arr[i] == 0 means i + 1 is prime<br/>arr[i] == 1 means i + 1 is not prime',
+            '(i+1) is prime, print it and mark its multiples',
+            'There are no prime numbers smaller than 2'
+        ];
+        datat = [
+            'Why is the loop like this?',
+            'Why do we go uptill i+1?',
+            'What is this?'
+        ];
+        poss = [
+             5,
+            188,
+            485
+        ];
+        pose = [
+            47,
+            41,
+            21,
+        ];
+        colorx = [
+            'marked',
+            'marked2',
+            'marked3'
+        ];
+        </script>
+
+
+
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">Anno<span class="highlight">t8</span></h2>
+            <p class="intro">Annotate your text beautifully.<br/> Add informative snippets instead of misplaced comments.</p>
+            <div class="btns">
+                <a class="btn btn-cta-secondary" href="login">Login</a>
+                <a class="btn btn-cta-primary" href="register">Register</a>
+            </div>
+            <ul class="meta list-inline">
+            </ul><!--//meta-->
+        </div><!--//container-->
+    </section><!--//promo-->
+    
+    <!-- ******ABOUT****** --> 
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is Annot8?</h2>
+            <p class="intro text-center">Add your source code and text use annotations to beautifully explain important parts of the it with markups and highlights</p>
+            <div class="row">
+
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Easy to customise</h3>
+                        <p>Brilliant code highlighting to make it pleasing to the eyes. Supports Java, Javascript, C, C-Type languages, Python, Ruby and many more! </p>
+                    </div><!--//content-->
+                </div><!--//item-->
+
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Designed for developers and Writers</h3>
+                        <p>Designed keeping the mind, the needs of developers and artists. Simple and quick adding of text/source code.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-sm-6 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Time saver</h3>
+                        <p>Instead of having to go through different comments laid out in different directions, simply click on the piece of code to understand what the developer wants to convey!
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div><!--//row-->
+        </div><!--//container-->
+    </section><!--//about-->
+    
+    <!-- ******DOCS****** --> 
+    <section id="docs" class="docs section">
+        <div class="container">
+            <div class="docs-inner">
+            <h2 class="title text-center">Get Started</h2>            
+{#            <div class="block">#}
+{#                <h3 class="sub-title text-center">HTML</h3>#}
+{#                <p><a href="http://prismjs.com/" target="_blank">PrismJS</a> is used as the syntax highlighter here.</p>#}
+{#                <p>Below are the details of the custom PrismJS build used in this template. You can <a href="http://prismjs.com/download.html" target="_blank">build your own version</a> via their website should you need to.</p>#}
+{#                <ul class="list-unstyled">#}
+{#                    <li><strong>Compression level:</strong> Minified</li>#}
+{#                    <li><strong>Theme:</strong> Okaidia</li>#}
+{#                    <li><strong>Languages:</strong> Markup, CSS, C-like, JavaScript, PHP and Python</li>#}
+{#                </ul>#}
+{#                <div class="code-block">#}
+{#                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->#}
+{#                    <pre><code class="language-markup">#}
+{#    &ltp class="my-style"&gt#}
+{#      Hello World!#}
+{#    &lt/p&gt#}
+{#                     </code></pre>#}
+{#                </div><!--//code-block-->#}
+{#            </div><!--//block-->#}
+            
+{#            <div class="block">#}
+{#                <h3 class="sub-title text-center">CSS</h3>#}
+{#                <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>#}
+{#                #}
+{#                <div class="code-block">#}
+{#                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->#}
+{#                    <pre>#}
+{#    <code class="language-css">#}
+{#    /*   #}
+{#     * Template Name: devAid - Responsive Website Template for developers#}
+{#     * Version: 1.0#}
+{#     * Author: Xiaoying Riley at 3rd Wave Media#}
+{#     * Website: http://themes.3rdwavemedia.com/#}
+{#     * Twitter: @3rdwave_themes#}
+{#    */#}
+{#    body {#}
+{#      font-family: 'Lato', arial, sans-serif;#}
+{#      color: #444444;#}
+{#      font-size: 16px;#}
+{#      -webkit-font-smoothing: antialiased;#}
+{#      -moz-osx-font-smoothing: grayscale;#}
+{#    }#}
+{#    </code></pre>#}
+{#                </div><!--//code-block-->#}
+{#            </div><!--//block-->#}
+            <div class="block">
+                <h3 class="sub-title text-center">Smart Tagging of Code. Hover to see in Action!</h3>
+                <div class="code-block">
+                    <pre class="line-numbers language-java" data-keep-tags="span"><code id="code-b">
+    public void runEratosthenesSieve(int upperBound) {
+      int upperBoundSquareRoot = (int) Math.sqrt(upperBound);
+      boolean[] isComposite = new boolean[upperBound + 1];
+      for (int m = 2; m <= upperBoundSquareRoot; m++) {
+            if (!isComposite[m]) {
+                  System.out.print(m + " ");
+                  for (int k = m * m; k <= upperBound; k += m)
+                        isComposite[k] = true;
+            }
+      }
+      for (int m = upperBoundSquareRoot; m <= upperBound; m++)
+            if (!isComposite[m])
+                  System.out.print(m + " ");
+    }
+                    </code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->   <!--//block-->
+            
+            </div><!--//docs-inner-->         
+        </div><!--//container-->
+    </section><!--//features-->
+      
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+            <small class="copyright">Designed with <i class="fa fa-heart"></i> in Bombay</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+     
+    <!-- Javascript -->          
+
+    {% endblock %}
+

@@ -1,0 +1,57 @@
+.marked {
+    background-color: rgba(65, 171, 58, 0.44);;
+    outline: 0;
+}
+
+.marked:hover {
+    background-color: hsla(208, 49%, 45%, 0.44);
+    outline: 0;
+}
+
+.marked2 {
+    background-color: rgba(232, 65, 63, 0.51);
+    outline: 0;
+}
+
+.marked2:hover {
+    background-color: rgba(179, 191, 82, 0.84);
+    outline: 0;
+}
+
+.marked3 {
+    background-color: #5F4C4A;
+    outline: 0;
+}
+
+.marked3:hover {
+    background-color: rgba(61, 80, 84, 0.85);
+    outline: 0;
+}
+
+.headbar {
+    padding-bottom: 70px;
+}
+
+.popover-content {
+    color: black;
+}
+
+.modal-backdrop {
+  z-index: -1;
+}
+
+.scrollToTop{
+	padding:10px;
+	text-align:center;
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	bottom:10px;
+	right:5px;
+	display:none;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}

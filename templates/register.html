@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block title %} Register {% endblock %}
+
+{% block body %}
+
+<section id="about" class="about section">
+        <div class="container">
+
+        {% if registered %}
+
+        <h2 class="title text-center">Successfully Registered! Now <a href="/login">Login</a></h2>
+
+        {% else %}
+
+            <h2 class="title text-center">Register</h2>
+
+            <div class="row">
+                <form class="form-horizontal" method="post">
+<fieldset>
+
+<!-- Form Name -->
+{% csrf_token %}
+<!-- Text input-->
+    {% if error %}
+<div class="form-group">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="alert alert-danger" role="alert">{{ user_form.non_field_errors }}</div>
+    </div>
+</div>
+    {% endif %}
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Username</label>
+  <div class="col-md-4">
+      {{ user_form.username.errors }}
+{#  <input id="name" name="username" type="text" placeholder="Username" class="form-control input-md" required="yes">#}
+      {{ user_form.username }}
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Password</label>
+  <div class="col-md-4">
+      {{ user_form.password.errors }}
+{#    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="yes">#}
+      {{ user_form.password }}
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Email</label>
+  <div class="col-md-4">
+      {{ user_form.email.errors }}
+{#    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="yes">#}
+      {{ user_form.email }}
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">Register</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+            </div><!--//row-->
+        {% endif %}
+        </div><!--//container-->
+    </section>
+
+{% endblock %}

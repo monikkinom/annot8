@@ -1,0 +1,196 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block title %} Home {% endblock %}
+
+    {% block navheads %}
+        <li class="nav-item"><a href="/add">Add new Annot8</a></li>
+    {% endblock %}
+
+
+    {% block header_files %}
+        <script type="text/javascript" src="{% static 'plugins/line-number/prism-line-numbers.js' %}"></script>
+        <link href="{% static 'plugins/line-number/prism-line-numbers.css' %}" rel="stylesheet" media="screen">
+    {% endblock %}
+
+    {% block body %}
+
+        <script>
+    $(document).ready(function(){
+
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+
+});
+</script>
+
+{#        {% if anno %}#}
+
+        <script type="text/javascript">
+
+
+        datax = [
+        {% for a in anno %}
+            '{% autoescape off %}{{ a.content }}{% endautoescape %}',
+        {% endfor %}
+        ];
+        datat = [
+            {% for a in anno %}
+            '{{ a.title }}',
+        {% endfor %}
+        ];
+
+        colorx = [
+            {% for a in anno %}
+            '{% autoescape off %}{{ a.color }}{% endautoescape %}',
+            {% endfor %}
+        ];
+
+        poss = [
+            {% for a in anno %}
+            {{ a.start }},
+            {% endfor %}
+        ];
+
+        pose = [
+            {% for a in anno %}
+            {{ a.end }},
+            {% endfor %}
+        ];
+
+        </script>
+
+{#        {% endif %}#}
+
+{% if owner %}
+<button href="#" class="scrollToTop btn btn-sm btn-info" onclick="alertSelection()">Annotate</button>
+{% endif %}
+
+    <!-- ******DOCS****** --> 
+    <section id="docs" class="docs section">
+        <div class="container">
+
+
+            <h2 class="title text-center">{{ title }}</h2>
+
+
+        <div class="text-center">
+                <span class='st_sharethis_large' displayText='ShareThis'></span>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+             </div>
+
+            <div class="docs-inner" style="max-width: 1050px;">
+
+            <div class="block">
+                {% if owner %}
+{#                <input type="button" onclick="alertSelection()" unselectable="on" value="Get selection">#}
+                    <div class="row">
+           <div class="col-md-offset-5 col-md-4"> <button href="#" class="btn btn-lg btn-info" onclick="alertSelection()">Annotate</button></div>
+                    </div>
+                {% endif %}
+                <div class="code-block">
+                    <pre class="line-numbers" data-keep-tags="span"><code id="code-b" class="language-{{ lang }}">{{ code }}</code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->   <!--//block-->
+            
+            </div><!--//docs-inner-->         
+        </div><!--//container-->
+    </section><!--//features-->
+
+{#    <script type="text/javascript">#}
+{##}
+{#        $(function(){#}
+{##}
+{#            for(var key in datax) {#}
+{##}
+{#                var holder = $('#code-b').text();#}
+{#                var og = holder.substr(poss[key],pose[key]);#}
+{#                var surr = '<span class="'+colorx[key]+'" id="'+key+'">'+og+'</span>'#}
+{#                var perannot = holder.splice(poss[key], pose[key],surr);#}
+{#                $('#code-b').text(perannot);#}
+{##}
+{#            };#}
+{#        });#}
+{##}
+{#    </script>#}
+
+
+        <!--- modalll!!! -->
+
+
+        <div class="modal fade" id="anno" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Add Annotation!</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="row">
+              <blockquote>
+      <p id="quotinganno"></p>
+      <footer>from <cite title="Source Title">{{ title }}</cite></footer>
+    </blockquote>
+          </div>
+
+        <form name="make_anno" id="make_ann">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Title:</label>
+            <input type="text" class="form-control" name="title" id="anno-title">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Content:</label>
+            <textarea class="form-control" name="content" id="anno-text"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default active btn-success">
+                    <input type="radio" id="q156" checked="checked" name="color" value="marked" /> Green
+                </label>
+                <label class="btn btn-default btn-danger">
+                    <input type="radio" id="q157" name="color" value="marked2" /> Red
+                </label>
+                <label class="btn btn-default btn-primary">
+                    <input type="radio" id="q158" name="color" value="marked3" /> Blue
+                </label>
+            </div>
+          </div>
+
+
+
+          <input type="hidden" id="startvalue" name="start" value="">
+          <input type="hidden" id="endvalue" name="end" value="">
+          <input type="hidden" name="codeid" value="{{ cid }}">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" id="annotateit" class="btn btn-primary">Annotate!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- end modal -->
+
+    {% endblock %}
+

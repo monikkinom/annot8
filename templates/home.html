@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block title %} Home {% endblock %}
+
+    {% block navheads %}
+        <li class="nav-item"><a href="/add">Add new Annot8</a></li>
+    {% endblock %}
+
+{% block body %}
+
+    <script type="text/javascript">
+
+    function buttonDelete(id){
+
+        if(confirm("Are you sure you want to delete the Annot8? No going back!"))
+        {
+
+            $.get( "/delete_code/"+id, {})
+                .done(function( data ) {
+                alert(data);
+                        if(data=='deleted!')
+                        {
+                            location.reload();
+                        }
+            });
+
+        }
+
+
+    }
+
+    </script>
+
+
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="row">
+            <h2 class="text-center">Your Annot8</h2>
+            </div>
+
+            <div class="row">
+
+            <table class="table table-striped">
+
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Annot8 Title</th>
+                  <th>Annotations</th>
+                  <th>Date Added</th>
+                  <th>Length</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+                 <tbody>
+
+                 {% for code in codes %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><a href="/code/{{ code.id }}">{{ code.title }}</a></td>
+          <td>{{ code.acount }}</td>
+          <td>{{ code.created_at }}</td>
+          <td>{{ code.lent }}</td>
+          <td><button class="btn btn-sm btn-danger" onclick="buttonDelete({{code.id}})">Delete</button></td>
+        </tr>
+                 {% endfor %}
+
+                </tbody>
+
+
+            </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
